@@ -1,0 +1,150 @@
+/* 定义遮罩样式 */
+.VPHome {
+    background: radial-gradient(ellipse, rgba(var(--bg-gradient-home), 1) 0%, rgba(var(--bg-gradient-home), 0) 140%);
+}
+
+/* 自定义首页背景图 */
+.VPHome::before {
+    background-image: url(./assets/bg-home.webp);
+    background-size: cover;
+}
+
+body {
+  font-family: "LXGW WenKai Screen";
+  font-weight: normal;
+  font-size: 15px;
+}
+
+strong {
+  text-shadow: 0.8px 0;
+}
+
+:root {
+  /* 新版 复制图标 (24x24 深灰色 #656d76) */
+  --vp-icon-copy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23656d76'%3E%3Cpath d='M7.024 3.75c0-.966.784-1.75 1.75-1.75H20.25c.966 0 1.75.784 1.75 1.75v11.498a1.75 1.75 0 0 1-1.75 1.75H8.774a1.75 1.75 0 0 1-1.75-1.75Zm1.75-.25a.25.25 0 0 0-.25.25v11.498c0 .139.112.25.25.25H20.25a.25.25 0 0 0 .25-.25V3.75a.25.25 0 0 0-.25-.25Z'/%3E%3Cpath d='M1.995 10.749a1.75 1.75 0 0 1 1.75-1.751H5.25a.75.75 0 1 1 0 1.5H3.745a.25.25 0 0 0-.25.25L3.5 20.25c0 .138.111.25.25.25h9.5a.25.25 0 0 0 .25-.25v-1.51a.75.75 0 1 1 1.5 0v1.51A1.75 1.75 0 0 1 13.25 22h-9.5A1.75 1.75 0 0 1 2 20.25l-.005-9.501Z'/%3E%3C/svg%3E") !important;
+
+  /* 新版 复制成功对勾图标 (24x24 克莱因蓝 #002FA7) */
+  --vp-icon-copied: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23002FA7'%3E%3Cpath d='M21.03 5.72a.75.75 0 0 1 0 1.06l-11.5 11.5a.747.747 0 0 1-1.072-.012l-5.5-5.75a.75.75 0 1 1 1.084-1.036l4.97 5.195L19.97 5.72a.75.75 0 0 1 1.06 0Z'/%3E%3C/svg%3E") !important;
+}
+
+.VPHome {
+    background: radial-gradient(
+        ellipse at center,
+        rgba(var(--bg-gradient-home), 0.8) 0%,   /* 中间不额外变暗 */
+        rgba(var(--bg-gradient-home), 0.6) 40%,   /* 过渡自然 */
+        rgba(var(--bg-gradient-home), 0.5) 70%,   /* 上下边缘一致 */
+        rgba(var(--bg-gradient-home), 0.4) 100%   /* 最边缘不要全黑 */
+    ) !important;
+}
+
+/* 1. 替换时钟图标 */
+.VPHomeBlog .blog-item .item-info .time svg,
+.VPHomeBlog .blog-item .badge-list .split:nth-child(2) svg {
+  display: none !important;
+}
+.VPHomeBlog .blog-item .item-info .time::before,
+.VPHomeBlog .blog-item .badge-list .split:nth-child(2)::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  vertical-align: middle;
+  background: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><path d="M13 7h-2v5.414l3.293 3.293 1.414-1.414L13 11.586V7z"/></svg>') no-repeat center / contain;
+}
+
+/* 2. 替换闹钟图标 */
+.VPHomeBlog .blog-item .item-info .readTime svg,
+.VPHomeBlog .blog-item .badge-list .split:last-child svg {
+  display: none !important;
+}
+.VPHomeBlog .blog-item .item-info .readTime::before,
+.VPHomeBlog .blog-item .badge-list .split:last-child::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  vertical-align: middle;
+  background: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>') no-repeat center / contain;
+}
+
+/* 3. 同时兼容作者/字数图标，统一样式（可选） */
+.VPHomeBlog .blog-item .item-info .author svg,
+.VPHomeBlog .blog-item .item-info .word svg {
+  display: none !important;
+}
+.VPHomeBlog .blog-item .item-info .author::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  vertical-align: middle;
+  background: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-4.42 0-8 2.69-8 6v1h16v-1c0-3.31-3.58-6-8-6z"/></svg>') no-repeat center / contain;
+}
+.VPHomeBlog .blog-item .item-info .word::before {
+  content: '';
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  vertical-align: middle;
+  background: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3 17v2h6v-2H3zM3 5v2h18V5H3zm10 16h-2v-6H3v-2h8v-6h2v6h8v2h-8v6z"/></svg>') no-repeat center / contain;
+}
+
+.dark {
+  /* One Dark Pro 深蓝色系 · 高级深色主题 */
+  --vp-c-bg: #1e222a;        /* 主背景：深蓝灰（One Dark 标准底色） */
+  --vp-c-bg-alt: #23272f;    /* 次级背景：稍亮一点 */
+  --vp-c-bg-elv: #2c313c;    /* 按钮/卡片悬浮色 */
+  --vp-c-bg-soft: #282c34;   /* 柔和背景块 */
+  --vp-c-border: #3c4049;    /* 边框：清晰不刺眼 */
+  --vp-c-divider: #32363e;   /* 分割线：柔和可见 */
+}
+
+
+:root {
+  --vp-sidebar-width: 280px !important;  /* 侧边栏宽度 */
+  --vp-doc-max-width: 1300px !important; /* 内容区最大宽度 */
+  --vp-layout-max-width: min(100vw - 20px, 1600px) !important; /* 页面宽度 */
+}
+
+/* 文章搞宽点 */
+.content-container {
+  max-width: 100% !important;
+}
+
+/* 行内代码字号 */
+:not(pre) > code {
+  font-size: 13.5px !important;
+}
+
+/* 代码块字号 */
+pre code,
+pre {
+  font-size: 13.5px !important;
+}
+
+.vp-doc img,
+.vp-doc .vp-img,
+.vp-doc [class*="image"] {
+  width: 100% !important;
+  height: auto !important;
+  max-height: none !important;
+  max-width: 100% !important;
+  aspect-ratio: unset !important;
+  object-fit: unset !important;
+  contain: unset !important;
+  position: static !important;
+  display: block !important;
+}
+
+/* 强制修复博客卡片封面图 - 不影响你任何样式 */
+div.VPHomeBlog div.blog-item div.cover img {
+  all: revert !important;
+  display: block !important;
+  width: 100% !important;
+  height: 140px !important;
+  object-fit: cover !important;
+}
